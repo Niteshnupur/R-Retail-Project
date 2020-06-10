@@ -182,7 +182,7 @@ auc(roc(data_train_1$store, data_train_1$score))
 #submission of file
 glimpse(store_data_test)
 test.probs = predict(log_fit_new, data=store_data_test, type='response')
-#write.csv(test.probs,'Rishabh_Sing_P5_part2.csv',row.names = F)
+
 
 #calculating KS cutt-off
 train_score = predict(log_fit_new, newdata = data_train_1, type = 'response')
@@ -237,8 +237,6 @@ cutoff_data[cutoff_data$KS == max(cutoff_data$KS),]
 ##########
 #submission for hard class
 test.class=as.numeric(predict(log_fit_new,newdata=store_data_test,type='response')>0.3)
-#test.class=ifelse(test.class==1,'Yes','No')
-#write.csv(test.probs,'Bank_Predict_hard_class.csv',row.names = F)
-write.csv(test.class,'Rishabh_Sing_P2_part2.csv',row.names = F)
+write.csv(test.class,'Nitesh_Bhosle_P2_part2.csv',row.names = F)
 
 
